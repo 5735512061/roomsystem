@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, maximum-scale=1">
+
+<title>Senior Project</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="shortcut icon" href="favicon.ico" type="img/x-icon">
+
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,700italic,600italic,400italic,300italic,800,700,600' rel='stylesheet' type='text/css'>
+
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+<link href="css/responsive.css" rel="stylesheet" type="text/css">
+<link href="css/animate.css" rel="stylesheet" type="text/css">
+
+
+<script type="text/javascript" src="js/jquery.1.8.3.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/jquery-scrolltofixed.js"></script>
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/jquery.isotope.js"></script>
+<script type="text/javascript" src="js/wow.js"></script>
+<script type="text/javascript" src="js/classie.js"></script>
+<script src="contactform/contactform.js"></script>
+
+
+</head>
+<body>
+		<h1>Senior Project Show Cases CoE-ICT 2017</h1>
+			<ul>
+ 			<div ng-repeat="senior in seniors track by $index" ng-if="!isEmpty(senior)" >
+ 				<font ng-if="select($index,result)">
+ 					{{ senior }}		
+ 				</font>
+ 				<font ng-if="!select($index,result)">
+ 					{{ senior }}	
+ 				</font>
+				<button type="submit" ng-click="edit(senior.id)" class="btn btn-sm btn-primary btn-create"> Edit </button>
+ 				<button type="submit" ng-click="delete(senior.id)" class="btn btn-sm btn-primary btn-create"> Delete </button>
+				<br><br>
+ 			</div>
+			<br>
+ 		</ul> 
+		<div ng-app="seniorApp" ng-controller="seniorCtrl">	
+		<br><br>
+ 		<h1>Add new project</h1>
+			<div class="form-group">
+				<label for="project" name="project">Project</label>
+				<input type="text" id="project" class="form-control" ng-model="addsenior.project">
+			</div>
+			<div class="form-group">
+				<label for="like" name="like">Like</label>
+				<input type="text" id="like" class="form-control" ng-model="addsenior.like">
+			</div>
+			<div class="form-group">
+				<label for="share" name="Share">Share</label>
+				<input type="text" name="Share" class="form-control" ng-model="addsenior.share">
+			</div>
+			<button ng-click="add()" class="btn btn-sm btn-primary btn-create" >Submit</button><br><br>
+ 	</div>
+	</div>
+
+	<script type="text/javascript">
+ 		var app = angular.module("seniorApp",['ngResource'])
+ 		app.controller("seniorCtrl", function($scope, $resource){
+ 			var senior = $resource('/api/seniors/:senior_id',{senior_id: '@id'},
+ 				{ 
+ 					update: {method:'PUT' }	
+ 				})
+ 			$scope.editsenior = {}
+ 			$scope.result = {}
+ 			$scope.seniors = senior.query()
+
+ 			$scope.get = function(id) {
+ 				senior.get({senior_id:id}, function(senior) {
+ 					$scope.result = senior
+ 				})
+ 			}	
+
+ 			$scope.add =  function() {
+
+
+			    senior.save({message: $scope.addsenior.message, 
+			    		 like: $scope.addsenior.like,
+						 share: $scope.addsenior.share})
+			    $scope.seniors = senior.query()
+ 			}
+
+ 			$scope.edit = function(id) {
+ 				senior.get({senior_id:id}, function(senior) {
+ 					$scope.editsenior.id = id
+ 					$scope.editsenior.message = senior.message
+ 					$scope.editsenior.like = senior.like
+					$scope.editsenior.share = senior.share
+ 					$scope.result = senior
+ 					$scope.message = 'Edited senior ' +  id
+ 				})
+ 			}
+
+ 			$scope.update = function(id) {
+ 				senior.update( {senior_id: id}, { message: $scope.editsenior.message, 
+ 											like: $scope.editsenior.like,
+											share: $scope.editsenior.share}) 				
+ 				$scope.result = 'Update senior ' + id
+ 				$scope.seniors = senior.query()
+ 			}
+
+ 			$scope.delete = function(id) {
+ 				senior.delete( {senior_id: id})
+ 				$scope.result = 'Delete senior ' + id
+ 				$scope.seniors = senior.query()
+ 			}
+
+ 			$scope.isEmpty = function(senior) {
+ 				return Object.keys(senior).length == 0
+ 			}
+
+ 			$scope.select = function(id, senior) {
+ 				return id == senior.id
+ 			}
+
+ 		})
+ 	</script>
+	
+	
+</body>
+</html>

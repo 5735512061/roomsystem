@@ -1,0 +1,392 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, maximum-scale=1">
+
+<title>List</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="shortcut icon" href="favicon.ico" type="img/x-icon">
+
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+<link href="css/responsive.css" rel="stylesheet" type="text/css">
+<link href="css/animate.css" rel="stylesheet" type="text/css">
+
+
+<script type="text/javascript" src="js/jquery.1.8.3.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/jquery-scrolltofixed.js"></script>
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/jquery.isotope.js"></script>
+<script type="text/javascript" src="js/wow.js"></script>
+<script type="text/javascript" src="js/classie.js"></script>
+<script src="contactform/contactform.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-resource.min.js"></script>
+<style>
+        /* header{
+            width: 500px;
+            height: 100px;
+            background-size: cover;
+            margin-left: 0px;
+            margin-right: 0px;
+            background-image:  url("img/head.jpg");
+
+        }*/
+        body{
+            background:#cbcbff;
+        }
+        h2{
+            color: red;
+            font-size: 20px;
+        }
+        /*Panel tabs*/
+        .panel-tabs {
+            position: relative;
+            bottom: 30px;
+            clear:both;
+            border-bottom: 1px solid transparent;
+        }
+
+        .panel-tabs > li {
+            float: left;
+            margin-bottom: -1px;
+        }
+
+        .panel-tabs > li > a {
+            margin-right: 2px;
+            margin-top: 4px;
+            line-height: .85;
+            border: 1px solid transparent;
+            border-radius: 4px 4px 0 0;
+            color: #5238f4;
+        }
+
+        .panel-tabs > li > a:hover {
+            border-color: transparent;
+            color: #33323c;
+            background-color: transparent;
+        }
+
+        .panel-tabs > li.active > a,
+        .panel-tabs > li.active > a:hover,
+        .panel-tabs > li.active > a:focus {
+            color: #9b8df9;
+            cursor: default;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+            background-color: rgba(255,255,255, .23);
+            border-bottom-color: transparent;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        
+    </header>
+    <nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="room.html">ระบบจองห้องเรียนออนไลน์</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="room.html">หน้าหลัก</a></li>
+			</ul>
+	    </div>
+	</nav>
+	
+		
+    <!-- tabs/pill -->
+	<div class="row">  
+        <div class="col-md-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="panel-group" id="accordion">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="fa fa-home"> ห้องเรียน</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <table class="table">
+                                            <tr>
+                                                <td>
+                                                    <a href="room1.html">จองห้องเรียน</a>
+                                                </td>
+                                            </tr>
+                                             <tr>
+                                                <td>
+                                                    <a href="delete.html">ยกเลิกการจอง</a>
+                                                </td>
+                                            </tr>  
+                                            <tr>
+                                                <td>
+                                                    <a href="list.html">รายการจองห้องเรียน</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="detail.html">รายละเอียดห้องเรียน</a>
+                                                </td>
+                                            </tr>  
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="fa fa-user"> ข้อมูลติดต่อ</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <table class="table">
+                                            <tr>
+                                                <td>
+                                                    <a href="contact.html">ข้อมูลสำหรับการติดต่อ</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" class="fa fa-envelope"> แสดงความคิดเห็น</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseFour" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <table class="table">
+                                            <tr>
+                                                <td>
+                                                    <a href="comment.html">แจ้งข้อคิดเห็น</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div> 
+           <div class="col-md-6">
+               <br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">รายการจองห้องเรียน</h3>
+                                    <!-- <span class="pull-right">
+                                       
+                                        <ul class="nav panel-tabs">
+                                            <li class="active"><a href="#tab1" data-toggle="tab">อาคารเรียน 1</a></li>
+                                            <li><a href="#tab3" data-toggle="tab">อาคารเรียน 3</a></li>
+                                            <li><a href="#tab5" data-toggle="tab">อาคารเรียน 5</a></li>
+                                            <li><a href="#tab6" data-toggle="tab">อาคารเรียน 6</a></li>
+                                        </ul>
+                                    </span> -->
+                                </div>
+                                <div class="panel-body">
+                                    <div class="tab-content">
+                                        <!-- <div class="tab-pane active" id="tab1">Lorem ipsum dolor sit</div>
+                                        <div class="tab-pane" id="tab2">Lorem ipsum dolor sit amet,</div>
+                                        <div class="tab-pane" id="tab3">Lorem ipsum dolor sit amet,.</div> -->
+                                        <div ng-app="bookApp" ng-controller="BookCtrl">  
+		 <table class="table table-striped">
+      <thead>
+        <tr>
+          <th></th>
+          <th>ชื่อ-สกุล</th>
+          <th>ตำแหน่ง</th>
+          <th>วัตถุประสงค์</th>
+          <th>เลขห้อง</th>
+          <th>วันที่จอง</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="book in books track by $index" ng-if="!isEmpty(book)">
+          <td scope="row">{{ $index+1 }}</td>
+          <td>{{book.name}}</td>
+          <td>{{book.type}}</td>
+          <td>{{book.for}}</td>
+		      <td>{{book.room}}</td>
+		      <td>{{book.date|date: "dd-MM-yyyy"}}<br>{{book.timeb |date: "HH:mm"}}-{{book.timee 
+		      |date: "HH:mm"}}</td>
+          <td>
+          	 <button type="submit" ng-click="edit(book.id)"   class = "btn btn-warning"> แก้ไข </button>
+          </td>
+
+          <td>
+            <!-- <button type="button" ng-click="get(project.id)" class="btn btn-info">get</button> -->
+           	<!--<button type="submit" ng-click="get(book.id)"    class = "btn btn-success"> Get </button>-->
+       
+          </td>
+        </tr>
+      </tbody>
+</table>
+    <h2>แก้ไขรายการจอง</h2>
+    
+    <input type="hidden" id="id" ng-model="editBook.id">
+    <label for="name">ชื่อ-สกุล: <input type = 'text' name = 'name' ng-model="editBook.name" class='form-control'></label> 
+    <br>
+    <label for="type">ตำแหน่ง : <input type="text" name="type" class="form-control" ng-model="editBook.type"></label><br>
+    <label for="email">อีเมล์ : <input type="email" name="email" class="form-control" ng-model="editBook.email"></label><br>
+    <label for="for">วัตถุประสงค์ของการใช้ :</label> <br>
+      <div class="form-inline">
+      <input type="radio" name="for" value="Study" ng-model="editBook.for"> เรียน <br><br> 
+      <input type="radio" name="for" value="Test" ng-model="editBook.for"> สอบ <br><br>
+      <input type="radio" name="for" value="Activity" ng-model="editBook.for">  กิจกรรม<br><br>
+      <input type="radio" name="for" value="Meet" ng-model="editBook.for"> ประชุม<br><br>
+      <label for="title">ระบุเรื่อง :</label> <br><textarea name="title" class="form-control" rows="4" cols="50" ng-model="editBook.title"></textarea><br><br>
+      </div>
+       
+    <div class="form-group">
+    <label for="room" class="col-sm-0" class= "control-label">ระบุห้อง :
+    <select name="room" id="room" class="form-control" ng-model="editBook.room">
+      <optgroup label="อาคาร 1">
+        <option name="room"  value="1302A" ng-model="editBook.room">1302A</option>
+        <option name="room"  value="1402A" ng-model="editBook.room">1402A</option>
+      </optgroup>
+      <optgroup label="อาคาร 3">
+        <option name="room"  value="3102" ng-model="editBook.room">3102</option>
+        <option name="room" value="3202" ng-model="editBook.room">3202</option>
+        <option name="room" value="3212" ng-model="editBook.room">3212</option>
+        <option name="room" value="3304" ng-model="editBook.room">3304</option>
+        </optgroup>
+        <optgroup label="อาคาร 5">
+        <option name="room" value="5101" ng-model="editBook.room">5301</option>
+        <option name="room" value="5302" ng-model="editBook.room">5302</option>
+        <option name="room" value="5303" ng-model="editBook.room">5303</option>
+        <option name="room" value="5304" ng-model="editBook.room">5304</option>
+        <option name="room" value="5305" ng-model="editBook.room">5305</option>
+        </optgroup>
+        <optgroup label="อาคาร 6">
+        <option name="room" value="6303" ng-model="editBook.room">6303</option>
+        <option name="room" value="6309" ng-model="editBook.room">6309</option>
+        <option name="room" value="6310" ng-model="editBook.room">6310</option>
+        <option name="room" value="6311" ng-model="editBook.room">6311</option>
+        <option name="room" value="6315" ng-model="editBook.room">6315</option>
+        </optgroup>
+        </select>
+    </label>
+    </div> 
+    <div class="form-inline">
+        <div class="form-group">
+        <label for="date">วันที่ : <input type="date" name="date" class="form-control"  ng-model="editBook.date"></label>
+        <label for="timeb">เวลาเริ่ม : <input type="time" name="timeb" class="form-control"  ng-model="editBook.timeb"></label>
+        <label for="timee">เวลาสิ้นสุด : <input type="time" name="timee" class="form-control" ng-model="editBook.timee"></label>
+    </div> 
+    </div>      
+    <div class="form-group">
+    <button ng-click="update(editBook.id)" class = "btn btn-success">Update</button>  
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+    var app = angular.module("bookApp",['ngResource'])
+    app.controller("BookCtrl", function($scope, $resource){
+      var Book = $resource('/api/books/:book_id',{book_id: '@id'},
+        { 
+          update: {method:'PUT' } 
+        })
+      $scope.editBook = {}
+      $scope.result = {}
+      $scope.books = Book.query()
+      $scope.get = function(id) {
+        Book.get({book_id:id}, function(book) {
+          $scope.result = book
+        })
+      } 
+      $scope.add =  function() {
+         //  var givenPro = new Pro($scope.addPro)
+          // givenPro.$save(function(data){ 
+          //     console.log(data.message)              
+          // }) 
+          Book.save({name: $scope.addBook.name, 
+                 type: $scope.addBook.type,
+               email: $scope.addBook.email,
+               for:$scope.addBook.for,
+               title:$scope.addBook.title,
+                 room:$scope.addBook.room,
+                 date:$scope.addBook.date,
+                 timeb:$scope.addBook.timeb,
+                 timee:$scope.addBook.timee
+
+
+                })
+          $scope.books = Book.query()
+      }
+      $scope.edit = function(id) {
+        Book.get({book_id:id}, function(book) {
+          $scope.editBook.id = id
+          $scope.editBook.name = book.name
+          $scope.editBook.type = book.type
+          $scope.editBook.email =book.email
+          $scope.editBook.for =book.for
+          $scope.editBook.title =book.title
+          $scope.editBook.room =book.room
+          $scope.editBook.date =book.date
+          $scope.editBook.timeb =book.timeb
+          $scope.editBook.timee =book.timee
+
+          $scope.result = book
+          $scope.message = 'Edited Booking ' +  id
+        })
+      }
+      $scope.update = function(id) {
+        Book.update( {book_id: id}, { name: $scope.editBook.name, 
+                        type:  $scope.editBook.type,
+                        email: $scope.editBook.email,
+                          for:  $scope.editBook.for,
+                          title:  $scope.editBook.title,
+                        room:  $scope.editBook.room,
+                        date:  $scope.editBook.date,
+                        timeb:  $scope.editBook.timeb,
+                        timee:  $scope.editBook.timee
+                      })        
+        $scope.result = 'Update Booking ' + id
+        $scope.books = Book.query()
+      }
+      $scope.delete = function(id) {
+        Book.delete( {book_id: id})
+        $scope.result = 'Delete booking' + id
+        $scope.books = Book.query()
+      }
+      $scope.isEmpty = function(book) {
+        return Object.keys(book).length == 0
+      }
+      $scope.select = function(id, book) {
+        return id == book.id
+      }
+    })
+  </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                
+        </div>
+    </div>
+   
+             
+</body>
+</html>
